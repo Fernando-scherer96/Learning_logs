@@ -10,5 +10,6 @@ urlpatterns = [
     path('topics/', views.topics, name= 'topics'),
     #pagina de detalhes para um unico topico
     path('topics/<int:topic_id>/', views.topic, name='topic' ), 
-    
+    #pagina para o usuario integarir e criar um novo topico
+    path('new_topic/', views.new_topic, name='new_topic'),
 ]
