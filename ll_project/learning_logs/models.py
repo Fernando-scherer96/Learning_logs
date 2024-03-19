@@ -17,5 +17,5 @@ class Entry(models.Model):
 
     def __str__(self): 
         #retorna a representação da string do modelo
-        return f"{self.text[:50]}..."
+        return f"{self.text[:50]} + ... "
     
