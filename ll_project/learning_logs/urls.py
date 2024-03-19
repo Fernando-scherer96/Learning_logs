@@ -12,4 +12,8 @@ urlpatterns = [
     path('topics/<int:topic_id>/', views.topic, name='topic' ), 
     #pagina para o usuario integarir e criar um novo topico
     path('new_topic/', views.new_topic, name='new_topic'),
+    #Pagina para o usuario inserir as entradas dos topicos
+    path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
+    #é necessario que a url passe o id da pagina por isso
+    path('edit_entry/<int:entry_id>/', views.edit_entry, name="edit_entry"), 
 ]
