@@ -5,6 +5,7 @@ from . import views
 app_name = 'learning_logs'
 urlpatterns = [
     #pagina inicial
+    #o name serve para que o index e etc virem um link lá no base.html e que nos consiga pular de uma pagina para outra só clicando nos links
     path('', views.index, name='index'),
     #paginas para mostrar todos os tópicos 
     path('topics/', views.topics, name= 'topics'),

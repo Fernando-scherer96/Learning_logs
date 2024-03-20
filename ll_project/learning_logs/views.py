@@ -1,16 +1,22 @@
 from django.shortcuts import render, redirect
 from .models import Topic, Entry
 from .forms import FormTopic, EntryForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
+#request é a requisição do usuario
 def index(request): 
     #A pagina inicial para o registro de aprendizagem 
+    #render vai pegar o request e renderizar para uma pagina HTML com a caminho que definimos 
     return render(request, 'learning_logs/index.html')
 
 def topics(request):
     #mostra todos os topicos 
+    #order_by estou pegando o objeto no banco de dados e ordenados pela data
     topics = Topic.objects.order_by('date_added')
+    #criei um dicionario de chave e valor
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 
@@ -45,10 +51,13 @@ def new_entry(request, topic_id):
         #dados POST enviado, processando os dado 
         form = EntryForm(data=request.POST)
         if form.is_valid():
+            #commit salva, faz basicamente um pré salvamento
             new_entry = form.save(commit=False)
+            #agora sim peguei os dados do topico
             new_entry.topic = topic
+            #agora sim posso salvar
             new_entry.save()
-            return redirect ('learning_logs:topic', topic_id=topic_id)
+            return redirect('learning_logs:topic', topic_id=topic_id)
     
     #exibi um formulario branco ou invalido 
     context = {'topic':topic, 'form': form}

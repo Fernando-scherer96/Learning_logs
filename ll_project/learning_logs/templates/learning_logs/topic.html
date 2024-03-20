@@ -1,9 +1,9 @@
 {% extends 'learning_logs/base.html' %}
 
 {% block content %}
-    <p>Topic: {{ topic.text }}</p>
+    <p>Topico: {{ topic.text }}</p>
 
-    <p>Entries:</p>
+    <p>Anotações:</p>
     <p>
         <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
     </p>
@@ -17,7 +17,7 @@
             </p>
         </li>
         {% empty %}
-        <li>Nenhuma entrada disponível</li>
+        <li>Nenhuma entrada disponível.</li>
         {% endfor %}
     </ul>
 {% endblock content %}

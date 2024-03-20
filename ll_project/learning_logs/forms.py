@@ -6,6 +6,7 @@ class FormTopic(forms.ModelForm):
     class Meta: 
         model = Topic
         fields = ['text']
+        #tiramos o nosso labels
         labels = {'text': ''}
 
 class EntryForm(forms.ModelForm):

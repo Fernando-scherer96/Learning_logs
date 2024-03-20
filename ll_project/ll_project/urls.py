@@ -14,10 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+#importando o painel administrativo
 from django.contrib import admin
+#path serve para indicar o caminho para a url, uma rota
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
+    # Quando tiver vazio depois da barra quero que ele va para learning_logs.urls
     path('', include('learning_logs.urls')),
 ]
